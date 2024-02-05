@@ -1,0 +1,677 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  height: 100%;
+  background-color: black;
+  margin: 0;
+  padding: 0;
+}
+
+#description {
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.disclaimer {
+  font-size: 0.9rem;
+  color: #AE893E;
+}
+
+.disclaimer a {
+  color: #AE893E;
+  text-decoration: none;
+}
+
+.disclaimer a:hover {
+  text-decoration: underline;
+}
+
+#infowindow-content .title {
+  font-weight: bold;
+}
+
+#infowindow-content {
+  display: none;
+}
+
+#map #infowindow-content {
+  display: inline;
+}
+
+.primary-pac-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #353535;
+  margin: 150px auto;
+  width: 100%;
+  height: 300px;
+  width: 1018px;
+  box-shadow: 1px 1px 5px #353535;
+  padding: 2em;
+  border-radius: 5px;
+}
+
+.pac-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.pac-card h1 {
+  font-size: 35px;
+  color: #AE893E;
+  font-weight: 900;
+}
+
+/* Icon styling */
+.fa-map-marker {
+  margin-right: 5px;
+  font-size: 20px;
+}
+
+/* Adjust the input field style to accommodate the icon */
+.input-wrapper {
+  position: relative;
+}
+
+.input-wrapper i {
+  position: absolute;
+  top: 47%;
+  left: 35px;
+  transform: translateY(-50%);
+}
+
+#pac-input {
+  padding-left: 30px;
+  /* Ensure enough space for the icon */
+}
+
+#pac-card {
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+}
+
+
+.pac-card h1,
+.pac-card form {
+  margin: 12px;
+}
+
+.primary-main-map-form {
+  display: flex;
+  /* margin: 100px auto; */
+  /* background-color: black; */
+  z-index: 1;
+  /* height: 370px; */
+  /* width: 1018px; */
+  /* padding: 6em 0em; */
+  border-radius: 5px;
+}
+
+.main-map-form {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  height: 180px;
+  box-shadow: none;
+}
+
+.primary-main-map-form {
+  display: none;
+  /* Initially hide the form */
+}
+
+.main-map-form form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.para-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  border-radius: 5px;
+  height: 190px;
+  text-align: center;
+}
+
+#map-container {
+  width: 775px;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Style for the map itself */
+#map {
+  height: 100%;
+  width: 100%;
+
+}
+
+.btn-container {
+  text-align: center;
+  margin-top: 30px;
+  position: relative;
+}
+
+.btn-container .button-9 {
+  position: absolute;
+  top: 428px;
+  right: 292px;
+  z-index: -1;
+}
+
+/* Set a transparent background to make it visually cover the iframe */
+.btn-container .button-9::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* z-index: -1; */
+  background: transparent;
+}
+
+/* Add hover effect for the button */
+.btn-container .button-9:hover {
+  background-color: #AE893E;
+  color: #fff;
+}
+
+/* Adjust the input field style to accommodate the icon */
+.main-map-form .input-wrapper {
+  position: relative;
+}
+
+.main-map-form .input-wrapper i {
+  position: absolute;
+  top: 48%;
+  left: 10px;
+  /* Adjust the left position as needed */
+  transform: translateY(-50%);
+}
+
+.main-map-form input[type="text"],
+.main-map-form input[type="email"],
+.main-map-form input[type="tel"] {
+  padding-left: 30px;
+  opacity: 1;
+}
+
+/* Style the "Get My Value" button */
+.main-map-form .button-9 {
+  width: 100%;
+  /* Make the button full width */
+  margin-top: 10px;
+  /* Add spacing below the input fields */
+}
+
+/* Additional styling for the form elements if needed */
+.main-map-form input[type="text"],
+.main-map-form input[type="email"],
+.main-map-form input[type="tel"],
+.main-map-form .button-9 {
+  font-size: 20px;
+  font-weight: 300;
+  text-overflow: ellipsis;
+  padding: 10px 40px;
+  /* Adjust the padding as needed */
+  margin: 13px 0;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+}
+
+.main-map-form input[type="text"]:focus,
+.main-map-form input[type="email"]:focus,
+.main-map-form input[type="tel"]:focus,
+.main-map-form .button-9:focus {
+  border-color: #4d90fe;
+}
+
+#pac-container {
+  padding-bottom: 12px;
+  margin-right: 12px;
+}
+
+.pac-controls {
+  display: inline-block;
+  padding: 5px 11px;
+}
+
+.pac-controls label {
+  font-size: 13px;
+  font-weight: 300;
+}
+
+#pac-input,
+.button-9 {
+  background-color: #fff;
+  font-size: 20px;
+  font-weight: 300;
+  width: 100%;
+  text-overflow: ellipsis;
+  padding: 10px 65px;
+  margin: 5px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+}
+
+#pac-input:focus {
+  border-color: #4d90fe;
+}
+
+/* Modern Loading Screen Styling */
+#loadingScreen {
+  width: 100%;
+  height: 100vh;
+  background-color: #f0f0f0;
+  /* Light grey background */
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  opacity: 0.7;
+  left: 0;
+  z-index: 1000;
+  transition: opacity 0.5s, visibility 0.5s;
+  /* Smooth transition for fading out */
+}
+
+.loader {
+  border: 6px solid #a4a4a4;
+  /* Light grey border */
+  border-radius: 50%;
+  border-top: 6px solid #AE893EFF;
+  /* Blue border for the loader segment */
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* This will smoothly transition the loading screen out */
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+form {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.primary-main-form-result {
+  display: flex;
+  margin: 90px auto;
+  flex-direction: column;
+  width: 900px;
+}
+
+.top-main-form-result {
+  background-color: black;
+  opacity: 0.85;
+  color: #AE893E;
+  border-radius: 5px;
+  padding: 15px;
+  text-align: center;
+  font-family: Roboto;
+  margin-bottom: 10px;
+}
+
+.top-main-form-result h3 {
+  font-size: 28px;
+}
+
+.top-main-form-result p {
+  font-size: 20px;
+}
+
+.main-map-form-result {
+  display: flex;
+  flex-direction: row;
+}
+
+.resultArea {
+  flex: 1;
+  background-color: #fff;
+  color: #000;
+  border-radius: 5px;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+#resultArea {
+  width: 70%;
+  height: 100px;
+  border-radius: 5px;
+  font-family: Roboto;
+  display: flex;
+  background-color: white;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#resultArea p {
+  font-size: 35px;
+  margin-top: 10px;
+  border-radius: 5px;
+  text-align: center;
+  width: 90%;
+  color: #AE893E;
+}
+
+.agentInfo {
+  flex: 1;
+  background-color: #fff;
+  font-family: Roboto;
+  color: #000;
+  border-radius: 5px;
+  text-align: center;
+  padding: 10px;
+  margin-left: 10px;
+}
+
+.agentInfo h2 {
+  font-size: 22px;
+}
+
+.agentInfo a {
+  color: rgb(40, 0, 151);
+}
+
+img {
+  margin: 10px 0;
+}
+
+/* CSS */
+.button-9 {
+  appearance: button;
+  backface-visibility: hidden;
+  background-color: #AE893E;
+  border-radius: 6px;
+  border-width: 0;
+  opacity: 1;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  line-height: 1.15;
+  margin-left: 5px;
+  outline: none;
+  width: 22%;
+  overflow: hidden;
+  padding: 12px 0px;
+  text-transform: none;
+  transform: translateZ(0);
+  transition: all 0.2s, box-shadow 0.08s ease-in;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+
+.button-9:disabled {
+  cursor: not-allowed;
+  background-color: rgb(72, 72, 72);
+  opacity: 0.7;
+}
+
+.para-container p {
+  color: #AE893E;
+  position: absolute;
+  top: 170px;
+  left: 965px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 25px;
+  font-weight: bolder;
+}
+
+.main-ghl-form-container {
+  width: 760px;
+  background-color: black;
+  margin-top: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Update the style for the "Get My Value" button */
+.btn-container {
+  text-align: center;
+  margin-top: 30px;
+  position: relative;
+}
+
+.btn-container .button-9 {
+  appearance: button;
+  backface-visibility: hidden;
+  background-color: #AE893E;
+  border-radius: 6px;
+  border-width: 0;
+  opacity: 1;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  line-height: 1.15;
+  margin: 0 auto;
+  /* Center the button horizontally */
+  outline: none;
+  width: 180px;
+  /* Adjust the width as needed */
+  overflow: hidden;
+  padding: 12px 0px;
+  text-transform: none;
+  transform: translateZ(0);
+  transition: all 0.2s, box-shadow 0.08s ease-in;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.btn-container .button-9:hover {
+  background-color: #D2A847;
+}
+
+.btn-container .button-9:disabled {
+  cursor: not-allowed;
+  background-color: rgb(72, 72, 72);
+  opacity: 0.7;
+}
+
+@media screen and (max-width: 700px) {
+
+  .main-map-form {
+    display: block;
+  }
+
+  #map-container {
+    width: 100%;
+  }
+
+  .main-ghl-form-container {
+    width: 86%;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .primary-main-form-result {
+    display: flex;
+    margin: 90px auto;
+    flex-direction: column;
+    width: 900px;
+  }
+
+  .btn-container .button-9 {
+    position: absolute;
+    top: 800px;
+    right: 62px;
+  }
+
+  .para-container p {
+    position: absolute;
+    top: 672px;
+    left: 24%;
+    font-size: 17px;
+}
+
+  .para-container {
+    height: 0px;
+  }
+}
+
+@media screen and (min-width: 2001px) and (max-width: 3000px) {
+  #map-container {
+    min-width: 50vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .main-ghl-form-container {
+    min-width: 50vw;
+  }
+
+  .btn-container .button-9 {
+    right: 486px;
+  }
+
+  .para-container p {
+    left: 67%;
+  }
+
+  .primary-pac-card {
+    width: 37%;
+    margin: 100px auto;
+  }
+
+  .primary-main-form-result {
+    display: flex;
+    margin: 90px auto;
+    flex-direction: column;
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1601px) and (max-width: 2000px) {
+  #map-container {
+    min-width: 50vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .main-ghl-form-container {
+    min-width: 50vw;
+  }
+
+  .btn-container .button-9 {
+    right: 346px;
+  }
+
+  .para-container p {
+    left: 65%;
+  }
+
+  .primary-pac-card {
+    width: 60%;
+    margin: 100px auto;
+  }
+
+  .primary-main-form-result {
+    display: flex;
+    margin: 90px auto;
+    flex-direction: column;
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 1001px) and (max-width: 1600px) {
+  #map-container {
+    min-width: 50vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .main-ghl-form-container {
+    min-width: 40vw;
+  }
+
+  .btn-container .button-9 {
+    right: 346px;
+  }
+
+  .para-container p {
+    left: 65%;
+  }
+
+  .primary-pac-card {
+    width: 60%;
+    margin: 100px auto;
+  }
+
+  .primary-main-form-result {
+    display: flex;
+    margin: 90px auto;
+    flex-direction: column;
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 701px) and (max-width: 1000px) {
+  #map-container {
+    min-width: 70vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .para-container p {
+    position: absolute;
+    top: 170px;
+    left: 77%;
+  }
+
+  .primary-pac-card {
+    width: 90%;
+    margin: 50px auto;
+  }
+
+  .primary-main-form-result {
+    display: flex;
+    margin: 50px auto;
+    flex-direction: column;
+    width: 90%;
+  }
+}

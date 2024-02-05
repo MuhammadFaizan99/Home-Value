@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script type="module" src="/script.js" defer></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="loadingScreen">
+    <div class="loader"></div>
+    <div id="loadingPhrase"></div>
+  </div>
+  <section class="pac-card" id="pac-card">
+    <div class="primary-pac-card">
+      <h1><i class="fas fa-home"></i> WHAT'S YOUR HOME WORTH?</h1>
+      <form action="/home_value" method="post" id="homeValueForm">
+        <div class="input-wrapper">
+          <i class="fas fa-map-marker"></i>
+          <input id="pac-input" type="text" placeholder="Enter a location" />
+        </div>
+        <button class="button-9">Get Home Value</button>
+      </form>
+      <p class="disclaimer">HouseJet not intended to solicit properties currently listed.<br>
+        If you have any questions feel free to give us a call at <a href="tel:+12039094849">(203) 909-4849</a>.</p>
+    </div>
+    <div class="primary-main-map-form">
+      <section class="main-map-form">
+        <div class="para-container">
+          <p>Please fill form to get home value</p>
+        </div>
+        <div id="map-container">
+          <div id="map"></div>
+        </div>
+        <div class="main-ghl-form-container">
+          <iframe src="https://api.leadconnectorhq.com/widget/form/s8J6TOd9U9vffJWXPlP7"
+            id="inline-s8J6TOd9U9vffJWXPlP7" data-layout="{'id':'INLINE'}" data-trigger-type="alwaysShow"
+            data-trigger-value="" data-activation-type="alwaysActivated" data-activation-value=""
+            data-deactivation-type="neverDeactivate" data-deactivation-value="" data-form-name="Form 4"
+            data-height="578" data-layout-iframe-id="inline-s8J6TOd9U9vffJWXPlP7" data-form-id="s8J6TOd9U9vffJWXPlP7"
+            title="Form 4"></iframe>
+          <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+        </div>
+      </section>
+      <div class="btn-container">
+        <button class="button-9">Get My Value</button>
+      </div>
+    </div>
+    <div class="primary-main-form-result">
+      <div class="top-main-form-result">
+        <p>HOME VALUE REPORT FOR</p>
+        <h3 id="locationName">TWELVE APOSTLES, VICTORIA, AUSTRALIA</h3>
+      </div>
+      <section class="main-map-form-result">
+        <div id="resultArea">
+          <h3>ESTIMATED HOME VALUE:</h3>
+          <p id="resultArea-text">Results will show here.</p>
+        </div>
+        <div class="agentInfo">
+          <h2>HAVE QUESTIONS?</h2>
+          <img src="./agentProfileImg.png" alt="agent" width="170" draggable="false">
+          <p class="agentContact">Dylan Slater<br>Direct: <a href="tel:(203) 909-4849">(203) 909-4849</a><br>
+            Email: <a href="mailto:007dslater@gmail.com">007dslater@gmail.com</a></p>
+        </div>
+      </section>
+    </div>
+  </section>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVibvbMRaNxOISqDNbhGoGgOMCDfUEy4Q&callback=initMap&libraries=places&v=weekly"
+    defer></script>
+</body>
+
+</html>
